@@ -9,8 +9,56 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as StatisticsRouteImport } from './routes/statistics'
+import { Route as SpreadsheetRouteImport } from './routes/spreadsheet'
+import { Route as SpiderGraphsRouteImport } from './routes/spider-graphs'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as InvoicesRouteImport } from './routes/invoices'
+import { Route as EmailRouteImport } from './routes/email'
+import { Route as DocumentsRouteImport } from './routes/documents'
+import { Route as ApiBuilderRouteImport } from './routes/api-builder'
 import { Route as IndexRouteImport } from './routes/index'
 
+const StatisticsRoute = StatisticsRouteImport.update({
+  id: '/statistics',
+  path: '/statistics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpreadsheetRoute = SpreadsheetRouteImport.update({
+  id: '/spreadsheet',
+  path: '/spreadsheet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpiderGraphsRoute = SpiderGraphsRouteImport.update({
+  id: '/spider-graphs',
+  path: '/spider-graphs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvoicesRoute = InvoicesRouteImport.update({
+  id: '/invoices',
+  path: '/invoices',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmailRoute = EmailRouteImport.update({
+  id: '/email',
+  path: '/email',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocumentsRoute = DocumentsRouteImport.update({
+  id: '/documents',
+  path: '/documents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiBuilderRoute = ApiBuilderRouteImport.update({
+  id: '/api-builder',
+  path: '/api-builder',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +67,144 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/api-builder': typeof ApiBuilderRoute
+  '/documents': typeof DocumentsRoute
+  '/email': typeof EmailRoute
+  '/invoices': typeof InvoicesRoute
+  '/settings': typeof SettingsRoute
+  '/spider-graphs': typeof SpiderGraphsRoute
+  '/spreadsheet': typeof SpreadsheetRoute
+  '/statistics': typeof StatisticsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/api-builder': typeof ApiBuilderRoute
+  '/documents': typeof DocumentsRoute
+  '/email': typeof EmailRoute
+  '/invoices': typeof InvoicesRoute
+  '/settings': typeof SettingsRoute
+  '/spider-graphs': typeof SpiderGraphsRoute
+  '/spreadsheet': typeof SpreadsheetRoute
+  '/statistics': typeof StatisticsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/api-builder': typeof ApiBuilderRoute
+  '/documents': typeof DocumentsRoute
+  '/email': typeof EmailRoute
+  '/invoices': typeof InvoicesRoute
+  '/settings': typeof SettingsRoute
+  '/spider-graphs': typeof SpiderGraphsRoute
+  '/spreadsheet': typeof SpreadsheetRoute
+  '/statistics': typeof StatisticsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/api-builder'
+    | '/documents'
+    | '/email'
+    | '/invoices'
+    | '/settings'
+    | '/spider-graphs'
+    | '/spreadsheet'
+    | '/statistics'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/api-builder'
+    | '/documents'
+    | '/email'
+    | '/invoices'
+    | '/settings'
+    | '/spider-graphs'
+    | '/spreadsheet'
+    | '/statistics'
+  id:
+    | '__root__'
+    | '/'
+    | '/api-builder'
+    | '/documents'
+    | '/email'
+    | '/invoices'
+    | '/settings'
+    | '/spider-graphs'
+    | '/spreadsheet'
+    | '/statistics'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApiBuilderRoute: typeof ApiBuilderRoute
+  DocumentsRoute: typeof DocumentsRoute
+  EmailRoute: typeof EmailRoute
+  InvoicesRoute: typeof InvoicesRoute
+  SettingsRoute: typeof SettingsRoute
+  SpiderGraphsRoute: typeof SpiderGraphsRoute
+  SpreadsheetRoute: typeof SpreadsheetRoute
+  StatisticsRoute: typeof StatisticsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/statistics': {
+      id: '/statistics'
+      path: '/statistics'
+      fullPath: '/statistics'
+      preLoaderRoute: typeof StatisticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/spreadsheet': {
+      id: '/spreadsheet'
+      path: '/spreadsheet'
+      fullPath: '/spreadsheet'
+      preLoaderRoute: typeof SpreadsheetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/spider-graphs': {
+      id: '/spider-graphs'
+      path: '/spider-graphs'
+      fullPath: '/spider-graphs'
+      preLoaderRoute: typeof SpiderGraphsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/invoices': {
+      id: '/invoices'
+      path: '/invoices'
+      fullPath: '/invoices'
+      preLoaderRoute: typeof InvoicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/email': {
+      id: '/email'
+      path: '/email'
+      fullPath: '/email'
+      preLoaderRoute: typeof EmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/documents': {
+      id: '/documents'
+      path: '/documents'
+      fullPath: '/documents'
+      preLoaderRoute: typeof DocumentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api-builder': {
+      id: '/api-builder'
+      path: '/api-builder'
+      fullPath: '/api-builder'
+      preLoaderRoute: typeof ApiBuilderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,7 +217,25 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApiBuilderRoute: ApiBuilderRoute,
+  DocumentsRoute: DocumentsRoute,
+  EmailRoute: EmailRoute,
+  InvoicesRoute: InvoicesRoute,
+  SettingsRoute: SettingsRoute,
+  SpiderGraphsRoute: SpiderGraphsRoute,
+  SpreadsheetRoute: SpreadsheetRoute,
+  StatisticsRoute: StatisticsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
