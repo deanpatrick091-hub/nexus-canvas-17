@@ -19,6 +19,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { ReactNode } from "react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const nav = [
   { to: "/", label: "Dashboard", icon: LayoutDashboard },
@@ -96,6 +97,7 @@ export function AppShell({ children, title, actions }: { children: ReactNode; ti
           </div>
           <div className="flex items-center gap-2">
             {actions}
+            <ThemeToggle />
             <Button size="icon" variant="ghost" className="relative">
               <Bell className="w-4 h-4" />
               <span className="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-primary" />
